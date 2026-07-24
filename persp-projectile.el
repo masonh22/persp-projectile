@@ -97,12 +97,13 @@ perspective."
           (with-selected-frame frame
             (persp-kill name))))))))
 
-(defadvice persp-init-frame (after projectile-persp-init-frame activate)
-  "Rename initial perspective to `projectile-project-name' when a
-new frame is created in a known project."
-  (with-selected-frame frame
-    (when (projectile-project-p)
-      (persp-rename (projectile-project-name)))))
+;; Create a new perspective for `projectile-project-name' when a
+;; new frame is created in a known project.
+(advice-add 'persp-init-frame :after
+            (lambda (frame)
+              (with-selected-frame frame
+                (when (projectile-project-p)
+                  (persp-switch (projectile-project-name))))))
 
 (define-key projectile-mode-map [remap projectile-switch-project] 'projectile-persp-switch-project)
 
