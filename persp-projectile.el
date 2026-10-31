@@ -6,7 +6,7 @@
 ;; Created: 2014-04-14
 ;; Keywords: project, convenience
 ;; Version: 1.0.0
-;; Package-Requires: ((perspective "1.9") (projectile "3.1") (cl-lib "0.3"))
+;; Package-Requires: ((perspective "2.22") (projectile "3.1") (cl-lib "0.5"))
 
 ;; This file is NOT part of GNU Emacs.
 
